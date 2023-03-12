@@ -1,0 +1,126 @@
+@baseUrl = http://127.0.0.1:5005
+
+# Создание пользователей 1, 2, 3
+POST {{baseUrl}}/users/
+Content-Type: application/json
+
+{
+  "email": "email1@flask.com",
+  "password": "123456789"
+}
+
+###
+
+# Создание пользователя c уже существующей почтой
+POST {{baseUrl}}/users/
+Content-Type: application/json
+
+{
+  "email": "email1@flask.com",
+  "password": "1231213555"
+}
+
+###
+
+# Создание пользователя со слишком коротким паролем
+POST {{baseUrl}}/users/
+Content-Type: application/json
+
+{
+  "email": "email4@flask.com",
+  "password": "1234"
+}
+
+###
+
+# Получение пользователя 
+GET {{baseUrl}}/users/1/
+Content-Type: application/json
+
+###
+
+# Получение несуществующего пользователя 
+GET {{baseUrl}}/users/101/
+Content-Type: application/json
+
+###
+
+# Создание объявлений 1, 2 для пользователей 1, 2
+POST {{baseUrl}}/ads/
+Content-Type: application/json
+
+{
+  "title": "Pen",
+  "description": "It is working",
+  "user_id": 1
+}
+
+###
+
+# Получение объявления
+GET {{baseUrl}}/ads/1/
+Content-Type: application/json
+
+###
+
+# Получение несуществующего объявления
+GET {{baseUrl}}/ads/303/
+Content-Type: application/json
+
+###
+
+# Обновление объявления
+PATCH {{baseUrl}}/ads/1/
+Content-Type: application/json
+
+{
+  "description": "Updated description"
+}
+
+###
+
+# Получение обновлённого объявления
+GET {{baseUrl}}/ads/1/
+Content-Type: application/json
+
+###
+
+# Удаление объявления
+DELETE {{baseUrl}}/ads/2/
+Content-Type: application/json
+
+###
+
+# Получение удалённого объявления
+GET {{baseUrl}}/ads/2/
+Content-Type: application/json
+
+###
+
+# Обновление пользователя
+PATCH {{baseUrl}}/users/1/
+Content-Type: application/json
+
+{
+  "email": "newmail@flask.com"
+}
+
+###
+
+# Получение обновлённого пользователя
+GET {{baseUrl}}/users/1/
+Content-Type: application/json
+
+###
+
+# Удаление пользователя
+DELETE {{baseUrl}}/users/3/
+Content-Type: application/json
+
+###
+
+# Получение удалённого пользователя
+GET {{baseUrl}}/users/3/
+Content-Type: application/json
+
+###
