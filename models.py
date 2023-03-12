@@ -5,7 +5,6 @@ from sqlalchemy.orm import relationship
 from db import engine 
 
 
-# Base = declarative_base(bind=engine)
 Base = declarative_base()
 
 
@@ -39,4 +38,4 @@ class Advertisement(Base):
         return f'Advertisement {self.id}: {self.title} by User {self.user_id}'
 
 
-Base.metadata.create_all(bind=engine) 
+Base.metadata.create_all(bind=engine)
