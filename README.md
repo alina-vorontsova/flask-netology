@@ -13,3 +13,5 @@ docker-compose up
 ```
 
 4. Запустить `main.py`
+
+5. Выполнять запросы можно через `requests-examples.http`
